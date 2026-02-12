@@ -1,3 +1,11 @@
+/* =========================
+   FUENTE ROMÁNTICA
+========================= */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap');
+
+/* =========================
+   BODY
+========================= */
 body {
     display: flex;
     flex-direction: column;
@@ -6,26 +14,42 @@ body {
     height: 100vh;
     margin: 0;
     padding: 0;
-    background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+    background: linear-gradient(-45deg, #ff758c, #ff7eb3, #fad0c4, #ff9a9e);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
 }
 
+/* Fondo animado */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* =========================
+   SOBRE
+========================= */
 #envelope {
     position: relative;
-    height: 180px;
-    width: 280px;
-    border-bottom-left-radius: 6px;
-    border-bottom-right-radius: 6px;
-    margin-left: auto;
-    margin-right: auto;
-    top: 40%;
-    background-color: #ff2a22;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    height: 200px;
+    width: 320px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background: linear-gradient(135deg, #ff4b5c, #ff2a22);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
 }
 
 #envelope:hover {
     cursor: pointer;
+    transform: scale(1.05);
 }
 
+/* =========================
+   PARTE FRONTAL
+========================= */
 .front {
     position: absolute;
     width: 0;
@@ -34,95 +58,81 @@ body {
 }
 
 .flap {
-    border-top: 98px solid #ff2a22;
-    border-left: 140px solid transparent;
-    border-right: 140px solid transparent;
-    border-bottom: 82px solid transparent;
+    border-top: 110px solid #ff2a22;
+    border-left: 160px solid transparent;
+    border-right: 160px solid transparent;
+    border-bottom: 90px solid transparent;
     transform-origin: top;
+    transition: transform 0.6s ease;
 }
 
 .pocket {
-    border-left: 140px solid #ff748d;
-    border-right: 140px solid #ff748d;
-    border-bottom: 90px solid #ff98a7;
-    border-top: 90px solid transparent;
-    border-bottom-left-radius: 6px;
-    border-bottom-right-radius: 6px;
+    border-left: 160px solid #ff748d;
+    border-right: 160px solid #ff748d;
+    border-bottom: 100px solid #ff98a7;
+    border-top: 100px solid transparent;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
+/* =========================
+   CARTA
+========================= */
 .letter {
     position: relative;
-    background-color: white;
+    background: linear-gradient(to bottom right, #ffffff, #ffeef2);
     width: 90%;
     height: 90%;
     top: 5%;
-    border-radius: 10px;
-    box-shadow: 0 2px 26px rgba(0, 0, 0, .12);
-    margin-left: auto;
-    margin-right: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, .2);
+    margin: auto;
+    padding: 10px;
+    transition: transform 0.6s ease;
 }
 
-.letter:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-
+/* Texto romántico */
 .words {
     position: absolute;
     left: 10%;
     width: 80%;
-    height: 14%;
-    font-size: 15px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: black;
+    font-size: 16px;
+    color: #333;
+    font-weight: 400;
 }
 
-.line1 {
-    top: 15%;
-}
-.line2 {
-    top: 30%;
-}
-.line3 {
-    top: 50%;
-    text-align: center;
-}
-.line4 {
-    top: 65%;
-    text-align: center;
-}
+.line1 { top: 15%; }
+.line2 { top: 35%; }
+.line3 { top: 55%; text-align: center; }
+.line4 { top: 75%; text-align: center; }
 
+/* =========================
+   EFECTO ABRIR
+========================= */
 .open .flap {
-    transform: rotatex(180deg);
-    transition: transform 0.4s ease, z-index 0.6s;
+    transform: rotateX(180deg);
     z-index: 1;
-}
-
-.close .flap {
-    transform: rotatex(0deg);
-    transition: transform 0.4s 0.6s ease, z-index 1s;
-    z-index: 5;
 }
 
 .open .letter {
-    transform: translatey(-120px);
-    transition: transform 0.4s 0.6s ease, z-index 0.6s;
+    transform: translateY(-140px) scale(1.05);
     z-index: 2;
 }
 
-.close .letter {
-    transform: translatey(0deg);
-    transition: transform 0.4s ease, z-index 1s;
-    z-index: 1;
+.close .flap {
+    transform: rotateX(0deg);
 }
 
+.close .letter {
+    transform: translateY(0);
+}
+
+/* =========================
+   CORAZONES
+========================= */
 .hearts {
     position: absolute;
-    top: 90px;
+    top: 100px;
     left: 0;
     right: 0;
     z-index: 2;
@@ -131,109 +141,79 @@ body {
 .heart {
     position: absolute;
     bottom: 0;
-    right: 10%;
-}
-
-.heart:before, .heart:after {
-    position: absolute;
-    content: "";
-    background: #d00000;
-    width: 50px;
-    height: 80px;
-    left: 50px;
-    top: 0;
-    border-radius: 50px 50px 0 0;
-    transform: rotate(-45deg);
-    transform-origin: 0 100%;
-}
-
-.heart:after {
-    left: 0;
+    width: 30px;
+    height: 30px;
+    background: #ff0033;
     transform: rotate(45deg);
-    transform-origin: 100% 100%;
+    animation: floatUp 6s linear infinite;
+    box-shadow: 0 0 20px rgba(255, 0, 70, 0.6);
 }
 
-.close .heart {
-    opacity: 0;
-    animation: none;
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: #ff0033;
+    border-radius: 50%;
 }
 
-.a1 {
-    left: 20%;
-    transform: scale(0.6);
-    opacity: 1;
-    animation: slideUp 4s linear 1, sideSway 2s  ease-in-out 4 alternate;
-    animation-fill-mode: forwards;
-    animation-delay: 0.7s;
-}
-.a2 {
-    left: 55%;
-    transform: scale(1);
-    opacity: 1;
-    animation: slideUp 5s linear 1, sideSway 4s  ease-in-out 2 alternate;
-    animation-fill-mode: forwards;
-    animation-delay: 0.7s;
-}
-.a3 {
-    left: 10%;
-    transform: scale(0.8);
-    opacity: 1;
-    animation: slideUp 7s linear 1, sideSway 2s  ease-in-out 6 alternate;
-    animation-fill-mode: forwards;
-    animation-delay: 0.7s;
+.heart::before {
+    top: -15px;
+    left: 0;
 }
 
-@keyframes slideUp {
-    0% {
+.heart::after {
+    left: -15px;
     top: 0;
-    }
-    100% {
-        top: -600px;
-    }
 }
 
-@keyframes sideSway {
+@keyframes floatUp {
     0% {
-        margin-left: 0px;
+        transform: translateY(0) rotate(45deg);
+        opacity: 1;
     }
     100% {
-        margin-left: 50px;
+        transform: translateY(-600px) rotate(45deg);
+        opacity: 0;
     }
 }
 
+/* =========================
+   BOTÓN
+========================= */
 .reset {
     text-align: center;
+    margin-top: 40px;
 }
 
 .reset button {
-    font-weight: 800;
-    font-style: normal;
-    transition: all 0.1s linear;
-    background-color: transparent;
-    border: solid 2px #FF6863;
-    border-radius: 4px;
-    color: #FF6863;
-    display: inline-block;
-    font-size: 14px;
-    text-transform: uppercase;
-    margin: 20px;
-    margin-top: 110px;
-    padding: 10px;
-    line-height: 2em;
-    text-decoration: none;
-    min-width: 150px;
-    outline: none;
+    background: linear-gradient(45deg, #ff2a22, #ff758c);
+    border: none;
+    border-radius: 30px;
+    color: white;
+    font-size: 15px;
+    padding: 12px 25px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(255, 0, 80, 0.4);
 }
 
 .reset button:hover {
-    background-color: #FF6863;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(255, 0, 80, 0.6);
     cursor: pointer;
-    color: white;
 }
 
+/* =========================
+   TÍTULO
+========================= */
 .valentine {
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    color:rgb(20, 20, 20);
-    font-size: 30px;
+    font-family: 'Great Vibes', cursive;
+    font-size: 48px;
+    color: white;
+    margin-bottom: 30px;
+    text-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
