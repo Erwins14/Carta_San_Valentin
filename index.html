@@ -1,40 +1,74 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-        <title>Carta de San Valentín</title>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!-- Style CSS -->
-        <link rel="stylesheet" href="./style.css">
-    </head>
-    <body>
-        <h1 class="valentine">Hola Princesa, ¡Esta es mi carta de San Valentín para ti!</h1>
+    <meta name="description" content="Una carta especial de San Valentín hecha con amor ❤️">
+    <meta name="theme-color" content="#ff4b5c">
+
+    <title>Para Ti, Mi Amor ❤️</title>
+
+    <!-- Favicon (opcional si agregas uno) -->
+    <link rel="icon" href="heart.png" type="image/png">
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1 class="valentine">
+            💌 Para mi Princesa Hermosa 💌
+        </h1>
+    </header>
+
+    <main>
         <div class="envelope-wrapper">
             <div id="envelope" class="close">
+
                 <div class="front flap"></div>
                 <div class="front pocket"></div>
+
                 <div class="letter">
-                    <p class="words line1">Hola amor,</p>
-                    <p class="words line2">¿Quieres ser mi San Valentín?</p>
-                    <p class="words line3">Te amo.</p>
-                    <p class="words line4">Amorcito Guapa.</p>
+                    <p class="words line1">Hola mi amorcito guapa,</p>
+                    <p class="words line2">
+                        Desde que llegaste a mi vida, todo tiene más color.
+                    </p>
+                    <p class="words line3">
+                        ¿Quieres ser mi San Valentín hoy y siempre?
+                    </p>
+                    <p class="words line4">
+                        Con todo mi amor, <br>
+                        Tu novio ❤️.
+                    </p>
                 </div>
+
                 <div class="hearts">
                     <div class="heart a1"></div>
                     <div class="heart a2"></div>
                     <div class="heart a3"></div>
                 </div>
+
             </div>
         </div>
-        <div class="reset">
-            <button id="open">Open</button>
-            <button id="reset">Close</button>
-        </div>
-        
-        <!-- Script JS -->
-        <script src="./script.js"></script>
-    </body>
 
+        <div class="reset">
+            <button id="open">💖 Abrir Carta</button>
+            <button id="reset">💌 Cerrar Carta</button>
+        </div>
+    </main>
+
+    <footer style="position: absolute; bottom: 10px; font-size: 12px; color: white; opacity: 0.7;">
+        Hecho con ❤️ por Daniel para Judith.
+    </footer>
+
+    <!-- JS -->
+    <script src="./script.js"></script>
+
+</body>
 </html>
